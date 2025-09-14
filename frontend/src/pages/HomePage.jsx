@@ -268,27 +268,39 @@ const HomePage = () => {
  </div>
 
  <div className="grid grid-cols-1 gap-8">
- {services.map((service, index) => (
- <div
- key={index}
- className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-on-scroll hover-lift"
- style={{ animationDelay: `${index * 0.1}s` }}
- >
- <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center mb-6">
- <service.icon className="w-8 h-8 text-white" />
- </div>
- <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
- <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
- <ul className="space-y-2">
- {service.features.map((feature, idx) => (
- <li key={idx} className="flex items-center gap-2 text-gray-700">
- <CheckCircle className="w-5 h-5 text-green-500" />
- <span>{feature}</span>
- </li>
- ))}
- </ul>
- </div>
- ))}
+ {services.map((service, index) => {
+   // استخدام الكارت الجديد للعنصر الأول (بطاقات الدفع المسبق)
+   if (index === 0) {
+     return (
+       <div key={index} className="flex justify-center animate-on-scroll" style={{ animationDelay: `${index * 0.1}s` }}>
+         <PrepaidCard />
+       </div>
+     );
+   }
+   
+   // استخدام التصميم الأصلي للعناصر الأخرى
+   return (
+     <div
+       key={index}
+       className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-on-scroll hover-lift"
+       style={{ animationDelay: `${index * 0.1}s` }}
+     >
+       <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center mb-6">
+         <service.icon className="w-8 h-8 text-white" />
+       </div>
+       <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
+       <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
+       <ul className="space-y-2">
+         {service.features.map((feature, idx) => (
+           <li key={idx} className="flex items-center gap-2 text-gray-700">
+             <CheckCircle className="w-5 h-5 text-green-500" />
+             <span>{feature}</span>
+           </li>
+         ))}
+       </ul>
+     </div>
+   );
+ })}
  </div>
  </div>
  </section>
