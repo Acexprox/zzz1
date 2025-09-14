@@ -66,7 +66,7 @@ const PrepaidCard = () => {
     <StyledWrapper>
       <div className="card">
         <div className="image-container">
-          <svg viewBox="0 0 1921 1081" xmlnsXlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" className="svg">
+          <svg viewBox="0 0 1921 1081" xmlns="http://www.w3.org/2000/svg" className="svg">
             <defs>
               <radialGradient gradientUnits="objectBoundingBox" gradientTransform="translate(0.219) scale(0.563 1)" r="1.204" cy="0.5" cx="0.5" id="radial-gradient">
                 <stop stopColor="#f8fafc" offset={0} />
